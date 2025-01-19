@@ -1,0 +1,27 @@
+Regiao,UF,Estado,Municipios,Capital
+Sudeste,MG,Minas Gerais,853,Belo Horizonte
+Sudeste,SP,São Paulo,645,São Paulo
+Sul,RS,Rio Grande do Sul,497,Porto Alegre
+Nordeste,BA,Bahia,417,Salvador
+Sul,PR,Paraná,399,Curitiba
+Sul,SC,Santa Catarina,295,Florianópolis
+Centro-Oeste,GO,Goiás,246,Goiânia
+Nordeste,PI,Piauí,224,Teresina
+Nordeste,PB,Paraíba,223,João Pessoa
+Nordeste,MA,Maranhão,217,São Luís
+Nordeste,PE,Pernambuco,185,Recife
+Nordeste,CE,Ceará,184,Fortaleza
+Nordeste,RN,Rio Grande do Norte,167,Natal
+Norte,PA,Pará,144,Belém
+Centro-Oeste,MT,Mato Grosso,141,Cuiabá
+Norte,TO,Tocantins,139,Palmas
+Nordeste,AL,Alagoas,102,Maceió
+Sudeste,RJ,Rio de Janeiro,92,Rio de Janeiro
+Centro-Oeste,MS,Mato Grosso do Sul,79,Campo Grande
+Sudeste,ES,Espírito Santo,78,Vitória
+Nordeste,SE,Sergipe,75,Aracaju
+Norte,AM,Amazonas,62,Manaus
+Norte,RO,Rondônia,52,Porto Velho
+Norte,AC,Acre,22,Rio Branco
+Norte,AP,Amapá,16,Macapá
+Norte,RR,Roraima,15,Boa Vista

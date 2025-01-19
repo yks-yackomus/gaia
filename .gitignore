@@ -1,0 +1,9 @@
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+**/.ipynb_checkpoints
+node_modules/
+yarn-error.log
+yks.html
+indexold.md
