@@ -1,24 +1,55 @@
 ---
-theme: dashboard
+# theme: [air, slate]
+theme: deep-space
+# theme: wide
 title: Gaia
 ---
 
-## Municípios
+### Municípios
 
 ```js
-import {ufMunicipios} from './territorio/components/ufMunicipios.js'
-```
+import {MunicipiosUF} from './components/territorio/MunicipiosUF.js'
 
-```js
-const dataMunicipios = FileAttachment("./data/territorio/p-municipios-por-estado.csv").csv({
+const municipiosUF = FileAttachment("./data/territorio/p-municipios-por-estado.csv").csv({
     typed:true
 });
 ```
 
 <div class="grid grid-cols-2">
   <div class="card">
-    ${resize((width) => ufMunicipios(dataMunicipios))}
+    ${resize((width) => MunicipiosUF(municipiosUF))}
   </div>
 </div>
 
-## População
+### População
+
+```js
+import {PopulacaoBrasil} from './components/populacao/PopulacaoBrasil.js'
+
+const populacaoBrasil = FileAttachment("./data/populacao/p-populacao-brasil.csv").csv({
+    typed:true
+});
+```
+
+
+
+```js
+import {PopulacaoRegiao} from './components/populacao/PopulacaoRegiao.js'
+
+const populacaoRegiao = FileAttachment("./data/populacao/p-populacao-regiao.csv").csv({
+    typed:true
+});
+```
+
+```js
+const regiaoInput = Inputs.select(populacaoRegiao.map((d) => d.regiao), {unique: true, sort: true, label: "Região:", width:120});
+const regiaoChosen = Generators.input(regiaoInput);
+```
+
+<div class="grid grid-cols-2">
+  <div class="card">
+    ${resize((width) => PopulacaoBrasil(populacaoBrasil))}
+    ${resize((width) => PopulacaoRegiao(populacaoRegiao, regiaoChosen))}
+    ${regiaoInput}
+  </div>
+</div>

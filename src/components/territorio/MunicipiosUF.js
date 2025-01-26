@@ -1,19 +1,21 @@
-import * as Plot from "../../../_npm/@observablehq/plot@0.6.16/7bc4434c.js";
+import * as Plot from "npm:@observablehq/plot";
 
-export function ufMunicipios(data, {width, height} = {}) {
+export function MunicipiosUF(data, {width, height} = {}) {
   return Plot.plot({
-    title: "Somados, MG e SP têm 27% dos 5570 municípios brasileiros",
+    title: "MG e SP têm 27% dos 5570 municípios brasileiros",
     subtitle: "Roraima, apenas 15 municípios",
     width,
     height,
-    marginLeft: 20,
+    marginLeft: 30,
     marginRight: 0,
-    x: { axis: 'top' },
+    marginTop:36,
+    // x: { axis: 'top' },
     y: { label: null },
+    style: { fontSize: 14 },
     color: {
       legend: true,
     //   scheme: "Observable10",
-    //   range: ["#3ca951", "#ff8ab7", "#4269D0", "#6cc5b0", "#efb118"],
+      // range: ["#3ca951", "#ff8ab7", "#4269D0", "#6cc5b0", "#efb118"],
       range: ["#3ca951", "#ff725C", "#4269D0", "#6cc5b0", "#efb118"],
     //   range: ["#3ca951", "#6cc5b0", "#4269D0", "#a463f2", "#efb118"],
     //   range: ["#3ca951", "#6cc5b0", "#4269D0", "#97bbf5", "#a463f2"],
@@ -24,7 +26,7 @@ export function ufMunicipios(data, {width, height} = {}) {
         x: "Municipios",
         y: "UF",
         fill: "Regiao",
-        opacity:0.9,
+        opacity:0.7,
         sort: { y: "x", reverse: true, limit: 27 },
         channels: {
             Capital: 'Capital',
@@ -42,7 +44,13 @@ export function ufMunicipios(data, {width, height} = {}) {
         }
       }),
       Plot.ruleX([0]),
-      Plot.gridX()
+      Plot.gridX(),
+      Plot.axisX({
+        anchor:'top',
+        labelAnchor:'left',
+        label: 'Número de municípios por estado',
+        labelOffset:40,
+      }),
   
     //   Plot.text(data, {
     //     text: "Municipios",
