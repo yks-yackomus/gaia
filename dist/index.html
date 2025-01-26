@@ -7,17 +7,18 @@
 <title>Gaia | Atlas</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="./_observablehq/theme-deep-space.79595716.css">
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight,alt,wide.db1cdf55.css">
 <link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="./_observablehq/theme-deep-space.79595716.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight,alt,wide.db1cdf55.css">
 <link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
 <link rel="modulepreload" href="./_observablehq/client.7b49b864.js">
 <link rel="modulepreload" href="./_observablehq/runtime.f168f711.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.a7574edc.js">
-<link rel="modulepreload" href="./_import/components/territorio/MunicipiosUF.c495b116.js">
-<link rel="modulepreload" href="./_import/components/populacao/PopulacaoBrasil.8ecdc3b9.js">
-<link rel="modulepreload" href="./_import/components/populacao/PopulacaoRegiao.80dcf076.js">
+<link rel="modulepreload" href="./_import/components/territorio/MunicipiosUF.a0032f05.js">
+<link rel="modulepreload" href="./_import/components/populacao/PopulacaoBrasil.8c6f309c.js">
+<link rel="modulepreload" href="./_import/components/populacao/PopulacaoRegiao.13dd27f7.js">
+<link rel="modulepreload" href="./_import/components/populacao/DensidadeMunicipio.f55fb104.js">
 <link rel="modulepreload" href="./_observablehq/stdlib/inputs.7ef0a457.js">
 <link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/7bc4434c.js">
 <link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
@@ -64,12 +65,13 @@
 import {define} from "./_observablehq/client.7b49b864.js";
 import {registerFile} from "./_observablehq/stdlib.a7574edc.js";
 
+registerFile("./data/populacao/p-densidade-municipio.csv", {"name":"./data/populacao/p-densidade-municipio.csv","mimeType":"text/csv","path":"./_file/data/populacao/p-densidade-municipio.80e79dfd.csv","lastModified":1737902384648,"size":10042935});
 registerFile("./data/populacao/p-populacao-brasil.csv", {"name":"./data/populacao/p-populacao-brasil.csv","mimeType":"text/csv","path":"./_file/data/populacao/p-populacao-brasil.90afc654.csv","lastModified":1737826008525,"size":519});
 registerFile("./data/populacao/p-populacao-regiao.csv", {"name":"./data/populacao/p-populacao-regiao.csv","mimeType":"text/csv","path":"./_file/data/populacao/p-populacao-regiao.7e60f690.csv","lastModified":1737842533141,"size":3382});
 registerFile("./data/territorio/p-municipios-por-estado.csv", {"name":"./data/territorio/p-municipios-por-estado.csv","mimeType":"text/csv","path":"./_file/data/territorio/p-municipios-por-estado.93e864fe.csv","lastModified":1737289887723,"size":950});
 
 define({id: "36263616", inputs: ["FileAttachment"], outputs: ["MunicipiosUF","municipiosUF"], body: async (FileAttachment) => {
-const {MunicipiosUF} = await import("./_import/components/territorio/MunicipiosUF.c495b116.js");
+const {MunicipiosUF} = await import("./_import/components/territorio/MunicipiosUF.a0032f05.js");
 
 const municipiosUF = FileAttachment("./data/territorio/p-municipios-por-estado.csv").csv({
     typed:true
@@ -84,7 +86,7 @@ resize((width) => MunicipiosUF(municipiosUF))
 }});
 
 define({id: "639a8d3f", inputs: ["FileAttachment"], outputs: ["PopulacaoBrasil","populacaoBrasil"], body: async (FileAttachment) => {
-const {PopulacaoBrasil} = await import("./_import/components/populacao/PopulacaoBrasil.8ecdc3b9.js");
+const {PopulacaoBrasil} = await import("./_import/components/populacao/PopulacaoBrasil.8c6f309c.js");
 
 const populacaoBrasil = FileAttachment("./data/populacao/p-populacao-brasil.csv").csv({
     typed:true
@@ -93,7 +95,7 @@ return {PopulacaoBrasil,populacaoBrasil};
 }});
 
 define({id: "094336c4", inputs: ["FileAttachment"], outputs: ["PopulacaoRegiao","populacaoRegiao"], body: async (FileAttachment) => {
-const {PopulacaoRegiao} = await import("./_import/components/populacao/PopulacaoRegiao.80dcf076.js");
+const {PopulacaoRegiao} = await import("./_import/components/populacao/PopulacaoRegiao.13dd27f7.js");
 
 const populacaoRegiao = FileAttachment("./data/populacao/p-populacao-regiao.csv").csv({
     typed:true
@@ -101,8 +103,8 @@ const populacaoRegiao = FileAttachment("./data/populacao/p-populacao-regiao.csv"
 return {PopulacaoRegiao,populacaoRegiao};
 }});
 
-define({id: "8319dc40", inputs: ["Inputs","populacaoRegiao","Generators"], outputs: ["regiaoInput","regiaoChosen"], body: (Inputs,populacaoRegiao,Generators) => {
-const regiaoInput = Inputs.select(populacaoRegiao.map((d) => d.regiao), {unique: true, sort: true, label: "Região:", width:120});
+define({id: "69a907ee", inputs: ["Inputs","populacaoRegiao","Generators"], outputs: ["regiaoInput","regiaoChosen"], body: (Inputs,populacaoRegiao,Generators) => {
+const regiaoInput = Inputs.select(populacaoRegiao.map((d) => d.regiao), {unique: true, sort: true, label: null, width:120});
 const regiaoChosen = Generators.input(regiaoInput);
 return {regiaoInput,regiaoChosen};
 }});
@@ -125,6 +127,33 @@ regiaoInput
 ))
 }});
 
+define({id: "27899051", inputs: ["FileAttachment"], outputs: ["DensidadeMunicipio","densidadeMunicipio"], body: async (FileAttachment) => {
+const {DensidadeMunicipio} = await import("./_import/components/populacao/DensidadeMunicipio.f55fb104.js");
+
+const densidadeMunicipio = FileAttachment("./data/populacao/p-densidade-municipio.csv").csv({
+    typed:true
+});
+return {DensidadeMunicipio,densidadeMunicipio};
+}});
+
+define({id: "c9a9669c", inputs: ["Inputs","densidadeMunicipio","Generators"], outputs: ["estadoInput","estadoChosen"], body: (Inputs,densidadeMunicipio,Generators) => {
+const estadoInput = Inputs.select(densidadeMunicipio.map((d) => d.estado), {unique: true, sort: true, label: null, width:120});
+const estadoChosen = Generators.input(estadoInput);
+return {estadoInput,estadoChosen};
+}});
+
+define({id: "9ede1eac", mode: "inline", inputs: ["resize","DensidadeMunicipio","densidadeMunicipio","estadoChosen","display"], body: async (resize,DensidadeMunicipio,densidadeMunicipio,estadoChosen,display) => {
+display(await(
+resize((width) => DensidadeMunicipio(densidadeMunicipio, estadoChosen))
+))
+}});
+
+define({id: "d6850ff4", mode: "inline", inputs: ["estadoInput","display"], body: async (estadoInput,display) => {
+display(await(
+estadoInput
+))
+}});
+
 </script>
 </head>
 <body>
@@ -143,12 +172,21 @@ regiaoInput
 <h3 id="populacao" tabindex="-1"><a class="observablehq-header-anchor" href="#populacao">População</a></h3>
 <div class="observablehq observablehq--block"><!--:639a8d3f:--></div>
 <div class="observablehq observablehq--block"><!--:094336c4:--></div>
-<div class="observablehq observablehq--block"><!--:8319dc40:--></div>
+<div class="observablehq observablehq--block"><!--:69a907ee:--></div>
 <div class="grid grid-cols-2">
   <div class="card">
     <observablehq-loading></observablehq-loading><!--:c719b714:-->
     <observablehq-loading></observablehq-loading><!--:5e5a631c:-->
     <observablehq-loading></observablehq-loading><!--:5fa59139:-->
+  </div>
+</div>
+<h3 id="densidade-demografica" tabindex="-1"><a class="observablehq-header-anchor" href="#densidade-demografica">Densidade Demográfica</a></h3>
+<div class="observablehq observablehq--block"><!--:27899051:--></div>
+<div class="observablehq observablehq--block"><!--:c9a9669c:--></div>
+<div class="grid grid-cols-2">
+  <div class="card">
+    <observablehq-loading></observablehq-loading><!--:9ede1eac:-->
+    <observablehq-loading></observablehq-loading><!--:d6850ff4:-->
   </div>
 </div></main>
 <footer id="observablehq-footer">

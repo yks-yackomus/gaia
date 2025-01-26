@@ -51,3 +51,25 @@ const regiaoChosen = Generators.input(regiaoInput);
     ${regiaoInput}
   </div>
 </div>
+
+### Densidade Demográfica
+
+```js
+import {DensidadeMunicipio} from './components/populacao/DensidadeMunicipio.js'
+
+const densidadeMunicipio = FileAttachment("./data/populacao/p-densidade-municipio.csv").csv({
+    typed:true
+});
+```
+
+```js
+const estadoInput = Inputs.select(densidadeMunicipio.map((d) => d.estado), {unique: true, sort: true, label: null, width:120});
+const estadoChosen = Generators.input(estadoInput);
+```
+
+<div class="grid grid-cols-2">
+  <div class="card">
+    ${resize((width) => DensidadeMunicipio(densidadeMunicipio, estadoChosen))}
+    ${estadoInput}
+  </div>
+</div>
