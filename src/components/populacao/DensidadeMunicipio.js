@@ -6,7 +6,7 @@ const formatYear = utcFormat("%Y");
 
 export function DensidadeMunicipio(data, estado, {width, height} = {}) {
   return Plot.plot({
-    title: "Taboão da Serra, SP, é o município de maior densidade populacional com 14 mil habitantes por km²",
+    title: "Taboão da Serra, SP, é o município de maior densidade com 14 mil habitantes por km²",
     subtitle: "Barcelos, AM, o de menor: 0.15 habitantes por km²",
     style: { fontSize: 15 },
     width,
@@ -33,16 +33,19 @@ export function DensidadeMunicipio(data, estado, {width, height} = {}) {
     //   nice: true
     }, 
     x : {
-        // type: 'log',
-      label:null,
-      ticks:10,
-      tickRotate: -90,
-      nice:true,
-    //   grid:true,
+        type: 'log',
+      label:'População do município',
+      labelAnchor: 'center',
+      ticks:5,
+      domain: [8*1e2, 12*1e6], 
+      tickFormat: format(",.1r"), 
+    //   tickRotate: -90,
+    //   nice:true,
+      grid:true,
     },
     // fx: {padding: 0, label: null, tickRotate: 90, tickSize: 6},
     color: {
-      legend: true,
+    //   legend: true,
     //   domain: [2*1e-2, 1.5*1e4], 
     //   scheme: "Observable10",
     // scheme: 'plasma',
@@ -52,30 +55,46 @@ export function DensidadeMunicipio(data, estado, {width, height} = {}) {
     //   range: ["#3ca951", "#6cc5b0", "#4269D0", "#97bbf5", "#a463f2"],
       domain: ["Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"]
     },
+    r: {
+        legend: true,
+        label: 'Área km²',
+        // tickFormat: format(",.1r"), 
+    },
     marks: [
-        Plot.tickY(
+        Plot.dot(
             data.filter((d) => d.estado === estado), 
             // data, 
             {
-            x: "ano",
+            x: "populacao",
             y: "densidade",
-            stroke: 'regiao',
+            r: 3,
+            // stroke: 'regiao',
+            fill: 'Região',
             opacity: 0.7,
             channels: {
                 Município: 'municipio',
-                População: 'populacao'
+                População: 'populacao',
+                Região: 'regiao',
             },
-            // tip: true,
             tip: {
                 format: {
-                    Ano: true,
+                    fill: true,
                     Município: true,
-                    x: false,
                     stroke:false,
                     População: true,
-                    y: true,
+                    x:false,
                 }
             }
+        }),
+        Plot.dot(
+            data.filter((d) => d.estado === estado), 
+            // data, 
+            {
+            x: "populacao",
+            y: "densidade",
+            r:3,
+            // stroke: 'regiao',
+            opacity: 1,
         })
     ]
   });
