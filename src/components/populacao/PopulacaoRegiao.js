@@ -9,11 +9,11 @@ export function PopulacaoRegiao(data, regiao, {width, height} = {}) {
   return Plot.plot({
     // title: "Sudeste responde por 42% do total, e o Nordeste, por 27%",
     // subtitle: "O Sudeste representa XX%",
-    style: { fontSize: 14 },
+    style: { fontSize: 15 },
     width,
     height:200,
     marginLeft: 0,
-    marginRight: 45,
+    marginRight: 44,
     marginTop:36,
     y: {
       axis:'right',

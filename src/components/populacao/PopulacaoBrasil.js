@@ -8,7 +8,7 @@ export function PopulacaoBrasil(data, {width, height} = {}) {
   return Plot.plot({
     title: "212.6 milhões foi a população estimada em 2024",
     subtitle: "42% estão no Sudeste",
-    style: { fontSize: 14 },
+    style: { fontSize: 15 },
     width,
     height:400,
     marginLeft: 0,

@@ -11,7 +11,7 @@ export function MunicipiosUF(data, {width, height} = {}) {
     marginTop:36,
     // x: { axis: 'top' },
     y: { label: null },
-    style: { fontSize: 14 },
+    style: { fontSize: 15 },
     color: {
       legend: true,
     //   scheme: "Observable10",

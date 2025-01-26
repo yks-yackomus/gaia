@@ -1,7 +1,5 @@
 ---
-# theme: [air, slate]
-theme: deep-space
-# theme: wide
+theme: dashboard
 title: Gaia
 ---
 
