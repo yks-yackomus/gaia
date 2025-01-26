@@ -42,7 +42,7 @@ const populacaoRegiao = FileAttachment("./data/populacao/p-populacao-regiao.csv"
 ```
 
 ```js
-const regiaoInput = Inputs.select(populacaoRegiao.map((d) => d.regiao), {unique: true, sort: true, label: "Região:", width:120});
+const regiaoInput = Inputs.select(populacaoRegiao.map((d) => d.regiao), {unique: true, sort: true, label: null, width:120});
 const regiaoChosen = Generators.input(regiaoInput);
 ```
 
