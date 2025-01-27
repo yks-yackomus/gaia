@@ -4,6 +4,7 @@ import {timeFormat, utcFormat} from "https://cdn.skypack.dev/d3-time-format@4";
 import {min, max} from "https://cdn.skypack.dev/d3@7";
 
 const formatYear = utcFormat("%Y");
+const regiao = 'Minas Gerais';
 
 export function PopulacaoRegiao(data, regiao, {width, height} = {}) {
   return Plot.plot({

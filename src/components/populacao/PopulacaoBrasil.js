@@ -67,7 +67,7 @@ export function PopulacaoBrasil(data, {width, height} = {}) {
         x: "aaaa",
         y1:170*1e6,
         y2: "populacao",
-        opacity:0.5,
+        opacity:0.1,
       }),
       Plot.ruleX(data, Plot.pointerX({x: "aaaa", py: "populacao", stroke: "red"})),
       Plot.dot(data, Plot.pointerX({x: "aaaa", y: "populacao", stroke: "red"})),

@@ -22,7 +22,7 @@ export function DensidadeMunicipio(data, estado, {width, height} = {}) {
     y: {
         type: 'log',
     //   axis:'right',
-      tickFormat: format(",.1r"), 
+      tickFormat: format(",.1s"), 
       domain: [1, 1*1e4], 
     // domain: [1*1e-1, 1.5*1e4], 
     //   type: "linear", 
@@ -36,10 +36,10 @@ export function DensidadeMunicipio(data, estado, {width, height} = {}) {
     x : {
         type: 'log',
       label:'População do município',
-      labelAnchor: 'center',
+      labelAnchor: 'right',
       ticks:5,
       domain: [8*1e2, 10*1e6], 
-      tickFormat: format(",.1r"), 
+      tickFormat: format(",.1s"), 
     //   tickRotate: -90,
     //   nice:true,
       grid:true,
