@@ -26,7 +26,7 @@ export default {
   theme: "default",  //"default", // try "light", "dark", "slate", etc.
   header: `<a target="_self" href="https://yackomus.com" style="text-decoration:none" >Home</a>`, // what to show in the header (HTML)
   footer: `<div style="display: flex; flex-direction: row; align-items: center;justify-content: center;">
-  <a>Copyright © 2025 Thiago Oliveira</a>
+  <a>Copyright © 2025 Yackomus</a>
   </div>`, // what to show in the footer (HTML)
   sidebar: false, // whether to show the sidebar
   // toc: true, // whether to show the table of contents
