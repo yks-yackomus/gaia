@@ -4,7 +4,7 @@ export function MunicipiosUF(data, {width, height} = {}) {
   return Plot.plot({
     // title: "MG e SP têm 27% dos 5570 municípios brasileiros",
     // subtitle: "Roraima, apenas 15 municípios",
-    subtitle: "MG e SP têm 27% dos 5570 municípios brasileiros",
+    subtitle: "MG e SP têm 27% dos 5570 municípios brasileiros, Roraima tem apenas 15",
     width,
     height,
     marginLeft: 30,
@@ -12,7 +12,7 @@ export function MunicipiosUF(data, {width, height} = {}) {
     marginTop:40,
     // x: { axis: 'top' },
     y: { label: null },
-    // style: { fontSize: 15 },
+    style: { fontSize: 15},
     color: {
       legend: true,
     //   scheme: "Observable10",

@@ -6,11 +6,11 @@ const formatYear = utcFormat("%Y");
 
 export function PopulacaoBrasil(data, {width, height} = {}) {
   return Plot.plot({
-    title: "212.6 milhões foi a população estimada em 2024",
-    subtitle: "42% estão no Sudeste",
+    subtitle: "212.6 milhões foi a população brasileira estimada em 2024",
+    // subtitle: "42% estão no Sudeste",
     style: { fontSize: 15 },
     width,
-    height:400,
+    height:200,
     marginLeft: 0,
     marginRight: 45,
     marginTop:36,
@@ -67,7 +67,7 @@ export function PopulacaoBrasil(data, {width, height} = {}) {
         x: "aaaa",
         y1:170*1e6,
         y2: "populacao",
-        opacity:0.3,
+        opacity:0.5,
       }),
       Plot.ruleX(data, Plot.pointerX({x: "aaaa", py: "populacao", stroke: "red"})),
       Plot.dot(data, Plot.pointerX({x: "aaaa", y: "populacao", stroke: "red"})),
@@ -78,7 +78,7 @@ export function PopulacaoBrasil(data, {width, height} = {}) {
           dy: -17, 
           frameAnchor: "top-left", 
           fontVariant: "tabular-nums", 
-          text: (d) => [`Ano: ${formatYear(d.aaaa)}`, `Brasil: ${(d.populacao/1e6).toFixed(1)} milhões`].join("   ")})),
+          text: (d) => [`Ano ${formatYear(d.aaaa)}`, `População ${(d.populacao/1e6).toFixed(1)} milhões`].join("   ")})),
     ]
   });
 }

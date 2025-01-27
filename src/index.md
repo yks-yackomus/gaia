@@ -13,8 +13,6 @@ const municipiosUF = FileAttachment("./data/territorio/p-municipios-por-estado.c
 });
 ```
 
-${resize((width) => MunicipiosUF(municipiosUF))}
-
 <div class="grid grid-cols-2">
   <div class="card">
     ${resize((width) => MunicipiosUF(municipiosUF))}
@@ -49,8 +47,6 @@ const regiaoChosen = Generators.input(regiaoInput);
 <div class="grid grid-cols-2">
   <div class="card">
     ${resize((width) => PopulacaoBrasil(populacaoBrasil))}
-    ${resize((width) => PopulacaoRegiao(populacaoRegiao, regiaoChosen))}
-    ${regiaoInput}
   </div>
 </div>
 
@@ -72,6 +68,5 @@ const estadoChosen = Generators.input(estadoInput);
 <div class="grid grid-cols-2">
   <div class="card">
     ${resize((width) => DensidadeMunicipio(densidadeMunicipio, estadoChosen))}
-    ${estadoInput}
   </div>
 </div>
