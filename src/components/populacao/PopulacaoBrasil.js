@@ -6,7 +6,7 @@ const formatYear = utcFormat("%Y");
 
 export function PopulacaoBrasil(data, {width, height} = {}) {
   return Plot.plot({
-    subtitle: "212.6 milhões foi a população brasileira estimada em 2024",
+    subtitle: "212.6 milhões foi a população total estimada em 2024",
     // subtitle: "42% estão no Sudeste",
     style: { fontSize: 15 },
     width,

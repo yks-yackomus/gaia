@@ -22,6 +22,20 @@ const municipiosUF = FileAttachment("./data/territorio/p-municipios-por-estado.c
 ### População
 
 ```js
+import {PopulacaoEstado} from './components/populacao/PopulacaoEstado.js'
+
+const populacaoEstado = FileAttachment("./data/populacao/p-populacao-estado.csv").csv({
+    typed:true
+});
+```
+
+<div class="grid grid-cols-2">
+  <div class="card">
+    ${resize((width) => PopulacaoEstado(populacaoEstado))}
+  </div>
+</div>
+
+```js
 import {PopulacaoBrasil} from './components/populacao/PopulacaoBrasil.js'
 
 const populacaoBrasil = FileAttachment("./data/populacao/p-populacao-brasil.csv").csv({
