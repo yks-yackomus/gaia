@@ -1,6 +1,7 @@
 import * as Plot from "npm:@observablehq/plot";
 import {format} from "https://cdn.skypack.dev/d3-format@3";
 import {timeFormat, utcFormat} from "https://cdn.skypack.dev/d3-time-format@4";
+import * as d3 from "d3";
 
 const formatYear = utcFormat("%Y");
 
@@ -28,8 +29,8 @@ export function PopulacaoBrasil(data, {width, height} = {}) {
     }, 
     x : {
       label:null,
-      tickRotate:-90,
-      // type: band,
+      // tickRotate:-90,
+      interval: d3.utcYear,
       // ticks:10,
     },
     // color: {
@@ -43,11 +44,11 @@ export function PopulacaoBrasil(data, {width, height} = {}) {
     // },
     marks: [
       Plot.barY(data, {
-        x: "aaaa",
+        x: "Ano",
         y1:170*1e6,
         y2: "populacao",
         // fill: "Regiao",
-        opacity:0.6,
+        opacity:0.5,
         // sort: { y: "x", reverse: true, limit: 27 },
         channels: {
             População: 'populacao'
@@ -55,11 +56,10 @@ export function PopulacaoBrasil(data, {width, height} = {}) {
         // tip: true,
         tip: {
             format: {
-              Ano: true,
-              População: true,
+              // Ano: false,
+              x: true,
               y: false,
-              x: false,
-
+              População: true,
             }
         }
       }),
